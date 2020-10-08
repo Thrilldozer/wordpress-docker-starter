@@ -83,3 +83,7 @@ header .top-bar .sub-menu li .sub-menu {
   top: 0;
   left: 100%;
 }
+
+.widget {
+  list-style: none;
+}
