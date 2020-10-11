@@ -15,9 +15,29 @@
           <?php get_template_part('includes/section', 'cars');?>
           <?php wp_link_pages();?>
         </div>
-      </div>
-      <div class="col-lg-6">
+        <div class="col-lg-6">
+          <ul>
+            <li>
+              Colour: <?php echo get_field('colour');?>
+          </li>
+            
+            
 
+            <li>Registration: <?php echo get_field('registration');?> 
+
+            
+          </ul>
+
+          <h3>Features</h3>
+
+          <ul>
+            <li>I have not piad for</li>
+            <li>ACF</li>
+            <li>Pro</li>
+            <li>Yet</li>
+          </ul>  
+
+        </div>
       </div>
 
   </div>

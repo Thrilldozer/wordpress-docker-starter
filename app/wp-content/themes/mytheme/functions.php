@@ -84,7 +84,7 @@ function custom_post_type()
     'menu_icon' => 'dashicons-car',
     'public' => true,
     'has_archive' => true,
-    'supports' => array('title', 'editor', 'thumbnail'),
+    'supports' => array('title', 'editor', 'thumbnail', 'custom-fields'),
     //'rewrite' => array('slug' => 'my-cars')
   );
 
@@ -100,7 +100,7 @@ function custom_taxonomy() {
       'singular_name' => 'Brand'
     ),
     'public' => true,
-    'herarchial' => true
+    'hierarchical' => true
   );
 
   register_taxonomy('brands', array('cars'), $args);
