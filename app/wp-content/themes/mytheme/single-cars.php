@@ -34,7 +34,7 @@
         </div>
         <div class="col-lg-6">
           
-
+        <?php get_template_part('includes/form', 'enquiry');?>
 
         <ul>
             <li>

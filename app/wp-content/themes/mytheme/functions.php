@@ -116,3 +116,62 @@ function custom_taxonomy() {
 }
 
 add_action('init', 'custom_taxonomy');
+
+add_action('wp_ajax_enquiry', 'enquiry_form');
+add_action('wp_ajax_nopriv_enquiry', 'enquiry_form');
+
+function enquiry_form() 
+{
+
+  $formdata = [];
+
+  wp_parse_str($_POST['enquiry'], $formdata);
+
+  //admin email address
+  $admin_email = get_option('admin_email');
+
+  //Email headers
+  $headers[] = 'Content-Type: text/html; charset=UTF-8';
+  $headers[] = 'From' . $admin_email;
+  $headers[] = 'Reply-to:' . $formdata['email'];
+
+  //Who are we sending the email to
+  $send_to = $admin_email;
+
+  //subject
+  $subject = "Enquiry from" . $formdata['fname'] . ' ' . $formdata['lname'];
+
+  //message
+  $message = '';
+
+  foreach($formdata as $index => $field) 
+  {
+
+    $message .= '<strong>' . $field . '</strong>: ' . '<br />';
+
+  }
+
+  try {
+
+    if($sent = wp_mail($send_to, $subject, $message, $headers))
+    {
+      wp_send_json_success('Email Sent');
+    }
+    else {
+      $error = new WP_Error('400', 'Email Failed', [
+        'sent' => $sent,
+        'sent_to' => $send_to,
+        'subject' => $subject,
+        'message' => $message,
+        'headers' => $headers
+      ]);
+      wp_send_json_error( $error );
+    }
+  } catch (Exception $e)
+  {
+    wp_send_json_error($e -> getMessage());
+  }
+
+  wp_send_json_success($formdata['fname']);
+
+}
