@@ -22,7 +22,7 @@ function load_js()
 
   wp_enqueue_script('jquery');
 
-  wp_register_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', 'jquery', false, true);
+  wp_register_script('bootstrap', get_template_directory_uri() . '/js/bootstrap.min.js', ['jquery'], false, true);
   wp_enqueue_script('bootstrap');
 
   wp_register_script('magnific', get_template_directory_uri() . '/js/jquery.magnific-popup.min.js', 'jquery', false, true);

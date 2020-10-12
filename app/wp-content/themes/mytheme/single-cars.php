@@ -33,7 +33,10 @@
           <?php wp_link_pages();?>
         </div>
         <div class="col-lg-6">
-          <ul>
+          
+
+
+        <ul>
             <li>
               Colour: <?php echo get_field('colour');?>
           </li>

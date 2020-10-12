@@ -87,3 +87,19 @@ header .top-bar .sub-menu li .sub-menu {
 .widget {
   list-style: none;
 }
+
+.enqyiry_form .gform_buttion {
+  width: 100%;
+  background: green;
+  color: #fff;
+  display: block;
+  border: 0;
+}
+
+.enqyiry_form .gform_footer {
+  margin: 0;
+}
+
+.enqyiry_form input {
+  width: 100%;
+}

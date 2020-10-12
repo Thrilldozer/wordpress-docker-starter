@@ -8,3 +8,4 @@ jQuery(".gallery").each(function () {
     },
   });
 });
+alert("test");
