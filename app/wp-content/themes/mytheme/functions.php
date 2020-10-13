@@ -41,6 +41,8 @@ add_theme_support('widgets');
 
 //Menus
 
+
+
 register_nav_menus(
 
   array(
@@ -183,3 +185,18 @@ function register_navwalker(){
 	require_once get_template_directory() . '/class-wp-bootstrap-navwalker.php';
 }
 add_action( 'after_setup_theme', 'register_navwalker' );
+
+add_action('phpmailer_init', 'custom_mailer');
+
+function custom_mailer(PHPMailer $phpmailer)
+{
+
+  $phpmailer -> SetFrom('billy@google.com', 'Billy');
+  $phpmailer -> Host = 'email-smtp-us-west-2.amazonaws.com';
+  $phpmailer -> Port = 587;
+  $phpmailer -> SMTPAuth = true;
+  $phpmailer -> SMPTSecure = 'tls';
+  $phpmailer -> Username = SMPT_LOGIN;
+  $phpmailer -> Password = SMPT_PASSWORD;
+  $phpmailer -> IsSMPT();
+}

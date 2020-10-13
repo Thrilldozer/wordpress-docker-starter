@@ -18,6 +18,10 @@
  * @package WordPress
  */
 
+define('SMPT_LOGIN', 'Billy');
+
+define('SMPT_PASSWORD', 'password');
+
 // ** MySQL settings - You can get this info from your web host ** //
 /** The name of the database for WordPress */
 define('DB_NAME', 'wordpress');
