@@ -200,3 +200,17 @@ function custom_mailer(PHPMailer $phpmailer)
   $phpmailer -> Password = SMPT_PASSWORD;
   $phpmailer -> IsSMPT();
 }
+
+function my_shortcode() 
+{
+  ob_start();
+  get_template_part('includes/latest', 'cars');
+  return ob_get_clean();
+}
+add_shortcode('latest_cars', 'my_shortcode');
+
+function my_phone() 
+{
+  return '847 666 ****';
+}
+add_shortcode('phone', 'my_phone');
